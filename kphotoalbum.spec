@@ -1,13 +1,15 @@
-# $Revision: 1.1 $
+# $Revision: 1.2 $
+%define		_snap	2006-12-09
+%define		_rel	0.1
 Summary:	Kphotoalbum
 Summary(pl):	Kphotoalbu,
 Name:		kphotoalbum
-Version:	20061209noi18n
-Release:	0.1
+Version:	snap
+Release:	0.%(echo %{_snap} | tr -d -).%{_rel}
 License:	GPL v2
 Group:		X11/Applications/Graphics
-Source0:	http://kphotoalbum.org/snapshots/%{name}-2006-12-09-noi18n.tar.gz
-# Source0-md5:	aa00aa
+Source0:	http://kphotoalbum.org/snapshots/%{name}-%{_snap}-noi18n.tar.gz
+# Source0-md5:	aaf534a6e866a4a5ebff200f0670f266
 Patch0:		%{name}-namespace.patch
 URL:		http://kphotoalbum.org/
 BuildRequires:	kdelibs-devel
@@ -15,13 +17,14 @@ BuildRequires:	rpmbuild(macros) >= 1.129
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
-KPhotoAlbum is a tool which you can use to easily sort your images. It provides many functionalities to sort them and find them easily.
+KPhotoAlbum is a tool which you can use to easily sort your images. It
+provides many functionalities to sort them and find them easily.
 
 %description -l pl
 Program do opisywania i wyszukiwania zdjec.
 
 %prep
-%setup -q -n %{name}-2006-12-09-noi18n
+%setup -q -n %{name}-%{_snap}-noi18n
 %patch0 -p1
 
 %build
