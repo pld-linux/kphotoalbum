@@ -1,16 +1,16 @@
-# $Revision: 1.2 $
+# $Revision: 1.3 $
 %define		_snap	2006-12-09
 %define		_rel	0.1
 Summary:	Kphotoalbum
 Summary(pl):	Kphotoalbu,
 Name:		kphotoalbum
-Version:	snap
+Version:	3.0
 Release:	0.%(echo %{_snap} | tr -d -).%{_rel}
 License:	GPL v2
 Group:		X11/Applications/Graphics
-Source0:	http://kphotoalbum.org/snapshots/%{name}-%{_snap}-noi18n.tar.gz
-# Source0-md5:	aaf534a6e866a4a5ebff200f0670f266
-Patch0:		%{name}-namespace.patch
+Source0:	http://kphotoalbum.org/download/%{name}-%{version}.tar.gz
+# Source0-md5:	c6989033ebb5d221aaa55e0d58cef0b1
+#Source0:	http://kphotoalbum.org/snapshots/%{name}-%{_snap}-noi18n.tar.gz
 URL:		http://kphotoalbum.org/
 BuildRequires:	kdelibs-devel
 BuildRequires:	rpmbuild(macros) >= 1.129
@@ -24,8 +24,8 @@ provides many functionalities to sort them and find them easily.
 Program do opisywania i wyszukiwania zdjec.
 
 %prep
-%setup -q -n %{name}-%{_snap}-noi18n
-%patch0 -p1
+#%setup -q -n %{name}-%{_snap}-noi18n
+%setup -q 
 
 %build
 %configure
