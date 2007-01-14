@@ -1,8 +1,7 @@
-# $Revision: 1.4 $
 %define		_snap	2006-12-09
 %define		_rel	0.1
-Summary:	Kphotoalbum
-Summary(pl):	Kphotoalbum
+Summary:	KPhotoAlbum - tool to sort your images
+Summary(pl):	Kphotoalbum - narzêdzie do porz±dkowania zdjêæ
 Name:		kphotoalbum
 Version:	3.0
 Release:	0.%(echo %{_snap} | tr -d -).%{_rel}
@@ -21,9 +20,9 @@ KPhotoAlbum is a tool which you can use to easily sort your images. It
 provides many functionalities to sort them and find them easily.
 
 %description -l pl
-KPhotoAlbum jest narzêdziem, którem mo¿esz w prosty sposób sortowaæ
-twoje obrazy. Dostarcza wiele mo¿liwo¶ci do sortowania i szukania ich
-w prosty sposób.
+KPhotoAlbum jest narzêdziem, którym mo¿na w prosty sposób porz±dkowaæ
+zdjêcia. Dostarcza wiele mo¿liwo¶ci do sortowania i szukania ich w
+prosty sposób.
 
 %prep
 #%setup -q -n %{name}-%{_snap}-noi18n
@@ -45,4 +44,5 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/*
-%{_datadir}
+# XXX: FIXME
+%{_datadir}/*
