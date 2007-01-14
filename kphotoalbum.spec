@@ -1,8 +1,8 @@
-# $Revision: 1.3 $
+# $Revision: 1.4 $
 %define		_snap	2006-12-09
 %define		_rel	0.1
 Summary:	Kphotoalbum
-Summary(pl):	Kphotoalbu,
+Summary(pl):	Kphotoalbum
 Name:		kphotoalbum
 Version:	3.0
 Release:	0.%(echo %{_snap} | tr -d -).%{_rel}
@@ -21,7 +21,9 @@ KPhotoAlbum is a tool which you can use to easily sort your images. It
 provides many functionalities to sort them and find them easily.
 
 %description -l pl
-Program do opisywania i wyszukiwania zdjec.
+KPhotoAlbum jest narzêdziem, którem mo¿esz w prosty sposób sortowaæ
+twoje obrazy. Dostarcza wiele mo¿liwo¶ci do sortowania i szukania ich
+w prosty sposób.
 
 %prep
 #%setup -q -n %{name}-%{_snap}-noi18n
