@@ -1,7 +1,7 @@
 %define		_snap	2006-12-09
 %define		_rel	0.1
 Summary:	KPhotoAlbum - tool to sort your images
-Summary(pl.UTF-8):   Kphotoalbum - narzędzie do porządkowania zdjęć
+Summary(pl.UTF-8):	Kphotoalbum - narzędzie do porządkowania zdjęć
 Name:		kphotoalbum
 Version:	3.0
 Release:	0.%(echo %{_snap} | tr -d -).%{_rel}
