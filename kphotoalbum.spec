@@ -12,6 +12,7 @@ Source0:	http://kphotoalbum.org/download/%{name}-%{version}.tar.gz
 #Source0:	http://kphotoalbum.org/snapshots/%{name}-%{_snap}-noi18n.tar.gz
 URL:		http://kphotoalbum.org/
 BuildRequires:	kdelibs-devel
+BuildRequires:	libkipi-devel
 BuildRequires:	rpmbuild(macros) >= 1.129
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -26,23 +27,38 @@ prosty sposób.
 
 %prep
 #%setup -q -n %{name}-%{_snap}-noi18n
-%setup -q 
+%setup -q
 
 %build
-%configure
+export kde_htmldir=%{_kdedocdir}
+export kde_libs_htmldir=%{_kdedocdir}
+%configure \
+%if "%{_lib}" == "lib64"
+	--enable-libsuffix=64 \
+%endif
+	--%{?debug:en}%{!?debug:dis}able-debug%{?debug:=full} \
+	--with-qt-libraries=%{_libdir}
 %{__make}
 
 %install
 rm -rf $RPM_BUILD_ROOT
 
 %{__make} install \
-	 DESTDIR=$RPM_BUILD_ROOT
+	DESTDIR=$RPM_BUILD_ROOT \
+	kde_htmldir=%{_kdedocdir} \
+	kde_libs_htmldir=%{_kdedocdir}
+
+%find_lang %{name} --with-kde
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 
-%files
+%files -f %{name}.lang
 %defattr(644,root,root,755)
-%attr(755,root,root) %{_bindir}/*
-# XXX: FIXME
-%{_datadir}/*
+%attr(755,root,root) %{_bindir}/kphotoalbum
+%{_datadir}/apps/kphotoalbum
+%{_datadir}/config/kphotoalbumrc
+%{_desktopdir}/kde/kphotoalbum-import.desktop
+%{_desktopdir}/kde/kphotoalbum.desktop
+%{_iconsdir}/hicolor/*/apps/kphotoalbum.png
+%{_datadir}/mimelnk/application/x-vnd.kde.kphotoalbum-import.desktop
