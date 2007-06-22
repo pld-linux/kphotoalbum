@@ -1,15 +1,12 @@
-%define		_snap	2006-12-09
-%define		_rel	0.1
 Summary:	KPhotoAlbum - tool to sort your images
 Summary(pl.UTF-8):	Kphotoalbum - narzędzie do porządkowania zdjęć
 Name:		kphotoalbum
-Version:	3.0
-Release:	0.%(echo %{_snap} | tr -d -).%{_rel}
+Version:	3.0.2
+Release:	1
 License:	GPL v2
 Group:		X11/Applications/Graphics
 Source0:	http://kphotoalbum.org/download/%{name}-%{version}.tar.gz
-# Source0-md5:	c6989033ebb5d221aaa55e0d58cef0b1
-#Source0:	http://kphotoalbum.org/snapshots/%{name}-%{_snap}-noi18n.tar.gz
+# Source0-md5:	ef4dfbe3dca4fe8162ce2183e795635c
 URL:		http://kphotoalbum.org/
 BuildRequires:	kdelibs-devel
 BuildRequires:	libkipi-devel
@@ -26,7 +23,6 @@ zdjęcia. Dostarcza wiele możliwości do sortowania i szukania ich w
 prosty sposób.
 
 %prep
-#%setup -q -n %{name}-%{_snap}-noi18n
 %setup -q
 
 %build
